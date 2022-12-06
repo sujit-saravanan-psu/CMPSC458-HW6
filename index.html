@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujit Saravanan HW 5</title>
+</head>
+<style>
+    html{
+        display: flex;
+        justify-content: center;
+    }
+    body{
+        width: 70ch;
+    }
+    img{
+        max-width: 100%;
+    }
+    fl{
+        display: flex;
+        max-width: 50%;
+        gap: 1rem;
+    }
+</style>
+<body>
+    <h1 style="margin-bottom: 0px;">Problem 1</h1>
+    <p style="margin-top: 0px;">
+        List two different uses of an interpolation method in computer graphics. Explain how each works using a
+figure to support your explanation.
+<ul>
+    <li>
+        Anti-aliasing - Interpolation methods can be used to smooth out jagged edges. This is done by sampling multiple pixels along the edge of an object and using interpolation to calculate the color of each pixel, resulting in a smoother, more realistic edge.
+        <fl>
+            <img src = "assets/no-aa.png">
+            <img src = "assets/aa.png">
+        </fl>
+    </li>
+    <li>
+        Keyframe Interpolation - Keyframes are specific points in an animation that define the starting and ending transformations of an object. Keyframe interpolation calculates the intermediate frames between these keyframes, creating a seamless and natural movement.
+        <fl>
+            <img src = "assets/const.gif">
+            <img src = "assets/lin.gif">
+        </fl>
+    </li>
+</ul>
+    </p>
+
+    <h1 style="margin-bottom: 0px;">Problem 2</h1>
+    <p style="margin-top: 0px;">
+        Given a pose of the Yanshee robot, propose a constructive method for computing a quantified stability
+        of the robot. You should include terms like center of mass (CoM) and base of support (BoS) as shown
+        in Figure 1. As a starting point, consider how you could compute the CoM if given the angles of the
+        robot's joints.
+        <ul>
+            <li>
+                One method for computing a quantified stability of the Yanshee robot would be to first calculate the center of mass (CoM) of the robot. This can be done by measuring the angles of the robot's joints and using these measurements to determine the position of each individual body part. The CoM can then be calculated by taking the weighted average of the positions of each body part, with the weighting determined by the mass of each part.
+
+Once the CoM has been calculated, the next step would be to determine the robot's base of support (BoS) and center of pressure (CoP). The BoS is the area of the ground that the robot is currently supported on, and the CoP is the point on the BoS where the robot's weight is applied.
+
+To measure the stability of the robot, we can then calculate the distances between the CoM and the BoS, and between the CoM and the CoP. We can also calculate the time it would take for the CoM to reach the edge of the BoS under the velocity of the CoM (CoMv).
+
+These measures can then be used to determine the stability of the robot, with larger distances and longer times indicating a more stable posture, and smaller distances and shorter times indicating a less stable posture
+            </li>
+        </ul>
+    </p>
+
+    <h1 style="margin-bottom: 0px;">Problem 3</h1>
+    <ul style="margin-top: 0px;">
+        <li>
+            Describe the Markov property in terms of its application in texture synthesis.
+            <ul>
+                <li>
+                    The Markov property is a mathematical concept that states that the future state of a system can be reasonably determined by its current state. In the context of texture synthesis, this means that the appearance of a pixel in an image can be predicted based on the values of the pixels that are nearby. This property is often used in algorithms that generate new textures by sampling from existing images, using the values of nearby pixels(or patch/block) and a probabalistic model to determine the value of each new pixel in the generated texture. As a result, algorithms built on this concept can produce results that are similar to the original sample texture, but with some degree of randomness and variation. 
+                    <br>
+                </li>
+            </ul>
+        </li>
+        <li>
+            What are the pros and cons of relying on this property for texture synthesis?<br>
+            Pros:
+            <ul>
+                <li>Algorithms based on the Markov property are relatively simple.</li>
+                <li>It is capable of producing passable results with some degree of variation, allowing it to avoid generationg textures that suffer from "sameness".</li>
+                <li>Since the algorithm only relies on "present" information, it's able to generate new textures without the need of extensive training data or complex models.</li>
+            </ul>
+            Cons:
+            <ul>
+                <li>Because the conventional algorithm operates at the pixel scale, it can be quite slow for larger inputs. However, a reasonable solution to this con is to operate at a block/patch level instead.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h1 style="margin-bottom: 0px;">Problem 4</h1>
+    <ul style="margin-top: 0px;">
+        <li>
+            What is a near-regular texture (NRT)?
+            <ul>
+                <li>
+                    A near-regular texture (NRT) is a type of texture in which the elements of the texture are similar in size and shape, but not exactly identical. This type of texture is often found in natural materials such as rocks and crystals, as well as in some man-made materials such as ceramics and fabrics.
+                </li>
+            </ul>
+        </li>
+        <li>
+            How do NRTs differ from other types of textures?
+            <ul>
+                <li>
+                    NRTs differ from regular textures in that the elements of an NRT are similar but not exactly identical, while the elements of a regular texture are all exactly the same size and shape.
+                </li>
+            </ul>
+        </li>
+        <li>
+            How can you ensure the output of a texture synthesis algorithm is faithful to an NRT input image?
+            <ul>
+                <li>
+                    We can use the synthesized deformation field's parameterized approximation of geometric regularity to ensure faithfulness by multiplying its pixel-wise magnitude by a gain factor. When the gain is equal to 1, the deformation field is faithful to the target. When the gain is not equal to 1, then the deformation is not faithful to the target.
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <h1 style="margin-bottom: 0px;">Problem 5</h1>
+    <ul style="margin-top: 0px;">
+        <li>
+            What is an isosurface represented by a 3D (or isocontour in 2D) implicit function?
+            <ul>
+                <li>
+                    An isosurface is a surface which is represented by an implicit function, meaning that the coordinates of all the points that make up the surface in 3D/2D are defined by a mathematical equation. The equation is set up such that the surface is formed by all points in space where the scalar value is equal to a specific constant.
+                </li>
+            </ul>
+        </li>
+        <li>
+            Provide an example with a figure
+            <ul>
+                <li>
+                    One common example of an isosurface is a contour map, which shows the elevation of a landscape at various points. In this case, the isosurface would represent the points in the landscape with the same elevation. 
+                    A contour map with contour lines at 100, 200, and 300 feet above sea level would have three isosurfaces representing the points in the landscape with an elevation of 100 feet, 200 feet, and 300 feet, respectively.
+                    <br>
+                    <img src = "assets/isosurface.png">
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h1 style="margin-bottom: 0px;">Problem 6</h1>
+    <ul style="margin-top: 0px;">
+        <li>
+            Describe the marching squares/cubes method for contour surface representation.
+            <ul>
+                <li>
+                    The marching squares/cubes method is a technique used to extract isosurfaces from a three-dimensional scalar field. The method works by dividing the scalar field into a grid of small squares or cubes, and then determining the contours of the isosurface that pass through each square or cube. This is done by identifying the vertices of the square or cube that have values above or below the desired isosurface value, and then using interpolation to estimate the position of the contour on the edges of the square or cube. The resulting contour lines can then be combined to form a continuous representation of the isosurface.
+                </li>
+            </ul>
+        </li>
+        <li>
+            Which two of the following configurations in Figure 2 are redundant? Explain how you found your answer.
+            <ul>
+                <li>
+                    The far right on the middle row and the far right on the bottom row are redundant as they are simple reflections of eachother, meaning they are topologically equivalent.
+                    <fl>
+                        <img src = "assets/red1.png">
+                        <img src = "assets/red2.png">
+                    </fl>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
